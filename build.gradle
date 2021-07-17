@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+}
+
+group 'de.blu'
+version '1.0.0-SNAPSHOT'
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+jar {
+    duplicatesStrategy = 'EXCLUDE'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    compileJava {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    jar {
+        duplicatesStrategy = 'EXCLUDE'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenCentral()
+
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+
+    dependencies {
+        implementation 'com.google.inject:guice:4.0'
+        compileOnly 'com.github.einfachBlu:itemstacksaver:0cd300a0f005a2e8be29c8a8caced3a92385c4dd'
+        compileOnly 'com.github.einfachBlu:profile-manager:9c0477998b'
+        compileOnly 'com.github.einfachBlu:profile-system:94e9504e31'
+
+        compileOnly 'org.projectlombok:lombok:1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    }
+}

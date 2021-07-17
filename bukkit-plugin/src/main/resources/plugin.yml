@@ -1,0 +1,8 @@
+name: ProfileInventory
+main: de.blu.profileinventory.ProfileInventoryPlugin
+api-version: 1.16
+version: 1.0.0
+author: Blu
+depend:
+  - ItemStackSaver
+  - ProfileManager
